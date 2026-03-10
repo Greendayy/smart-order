@@ -1,0 +1,16 @@
+{
+  "name": "@smart-order/docs",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@astrojs/starlight": "^0.34.0",
+    "astro": "^5.13.5"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "test": "echo \"no tests\"",
+    "lint": "oxlint .",
+    "typecheck": "echo \"no typecheck\""
+  }
+}

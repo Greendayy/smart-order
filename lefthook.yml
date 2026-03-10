@@ -1,0 +1,7 @@
+pre-commit:
+  commands:
+    oxlint:
+      run: bun run lint
+    typecheck:
+      run: bun run typecheck
+
