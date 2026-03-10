@@ -1,0 +1,17 @@
+{
+  "name": "@smart-order/e2e",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "dev": "echo \"no dev task\"",
+    "build": "echo \"no build task\"",
+    "test": "echo \"E2E tests are opt-in. Run: bun --cwd apps/e2e run test:e2e\"",
+    "test:e2e": "playwright test",
+    "lint": "oxlint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

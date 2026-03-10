@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".tanstack/**", ".astro/**"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**", "test-results/**", "playwright-report/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    }
+  }
+}

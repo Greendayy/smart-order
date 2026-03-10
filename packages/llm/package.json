@@ -1,0 +1,24 @@
+{
+  "name": "@smart-order/llm",
+  "private": true,
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^0.0.46",
+    "@ai-sdk/openai-compatible": "^0.0.17",
+    "ai": "^4.3.19"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "echo \"no dev task\"",
+    "test": "bun test",
+    "lint": "oxlint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

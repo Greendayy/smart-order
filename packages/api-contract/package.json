@@ -1,0 +1,22 @@
+{
+  "name": "@smart-order/api-contract",
+  "private": true,
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "@smart-order/api": "workspace:*"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "echo \"no dev task\"",
+    "test": "bun test",
+    "lint": "oxlint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
