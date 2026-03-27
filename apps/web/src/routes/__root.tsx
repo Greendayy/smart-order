@@ -1,8 +1,22 @@
 /// <reference types="vite/client" />
 import type { ReactNode } from "react";
-import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
+import { HeadContent, Outlet, Scripts, createRootRoute, redirect } from "@tanstack/react-router";
+import { fetchSession } from "../lib/session";
 
 export const Route = createRootRoute({
+  beforeLoad: async ({ location }) => {
+    const session = await fetchSession();
+    const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+
+    if (!session && !isAuthPage) {
+      throw redirect({ to: "/login" });
+    }
+    if (session && isAuthPage) {
+      throw redirect({ to: "/" });
+    }
+
+    return { session };
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },

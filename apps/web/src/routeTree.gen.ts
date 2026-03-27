@@ -9,8 +9,86 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UsersRouteImport } from './routes/users'
+import { Route as StatsRouteImport } from './routes/stats'
+import { Route as ReturnsRouteImport } from './routes/returns'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PrintTemplateRouteImport } from './routes/print-template'
+import { Route as PrintPreviewRouteImport } from './routes/print-preview'
+import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as OrderDetailRouteImport } from './routes/order-detail'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as CustomersRouteImport } from './routes/customers'
+import { Route as CustomerDetailRouteImport } from './routes/customer-detail'
+import { Route as AuditLogsRouteImport } from './routes/audit-logs'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UsersRoute = UsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatsRoute = StatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReturnsRoute = ReturnsRouteImport.update({
+  id: '/returns',
+  path: '/returns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrintTemplateRoute = PrintTemplateRouteImport.update({
+  id: '/print-template',
+  path: '/print-template',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrintPreviewRoute = PrintPreviewRouteImport.update({
+  id: '/print-preview',
+  path: '/print-preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderDetailRoute = OrderDetailRouteImport.update({
+  id: '/order-detail',
+  path: '/order-detail',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersRoute = CustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomerDetailRoute = CustomerDetailRouteImport.update({
+  id: '/customer-detail',
+  path: '/customer-detail',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditLogsRoute = AuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +97,214 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/audit-logs': typeof AuditLogsRoute
+  '/customer-detail': typeof CustomerDetailRoute
+  '/customers': typeof CustomersRoute
+  '/login': typeof LoginRoute
+  '/order-detail': typeof OrderDetailRoute
+  '/orders': typeof OrdersRoute
+  '/print-preview': typeof PrintPreviewRoute
+  '/print-template': typeof PrintTemplateRoute
+  '/products': typeof ProductsRoute
+  '/register': typeof RegisterRoute
+  '/returns': typeof ReturnsRoute
+  '/stats': typeof StatsRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/audit-logs': typeof AuditLogsRoute
+  '/customer-detail': typeof CustomerDetailRoute
+  '/customers': typeof CustomersRoute
+  '/login': typeof LoginRoute
+  '/order-detail': typeof OrderDetailRoute
+  '/orders': typeof OrdersRoute
+  '/print-preview': typeof PrintPreviewRoute
+  '/print-template': typeof PrintTemplateRoute
+  '/products': typeof ProductsRoute
+  '/register': typeof RegisterRoute
+  '/returns': typeof ReturnsRoute
+  '/stats': typeof StatsRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/audit-logs': typeof AuditLogsRoute
+  '/customer-detail': typeof CustomerDetailRoute
+  '/customers': typeof CustomersRoute
+  '/login': typeof LoginRoute
+  '/order-detail': typeof OrderDetailRoute
+  '/orders': typeof OrdersRoute
+  '/print-preview': typeof PrintPreviewRoute
+  '/print-template': typeof PrintTemplateRoute
+  '/products': typeof ProductsRoute
+  '/register': typeof RegisterRoute
+  '/returns': typeof ReturnsRoute
+  '/stats': typeof StatsRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/audit-logs'
+    | '/customer-detail'
+    | '/customers'
+    | '/login'
+    | '/order-detail'
+    | '/orders'
+    | '/print-preview'
+    | '/print-template'
+    | '/products'
+    | '/register'
+    | '/returns'
+    | '/stats'
+    | '/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/audit-logs'
+    | '/customer-detail'
+    | '/customers'
+    | '/login'
+    | '/order-detail'
+    | '/orders'
+    | '/print-preview'
+    | '/print-template'
+    | '/products'
+    | '/register'
+    | '/returns'
+    | '/stats'
+    | '/users'
+  id:
+    | '__root__'
+    | '/'
+    | '/audit-logs'
+    | '/customer-detail'
+    | '/customers'
+    | '/login'
+    | '/order-detail'
+    | '/orders'
+    | '/print-preview'
+    | '/print-template'
+    | '/products'
+    | '/register'
+    | '/returns'
+    | '/stats'
+    | '/users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuditLogsRoute: typeof AuditLogsRoute
+  CustomerDetailRoute: typeof CustomerDetailRoute
+  CustomersRoute: typeof CustomersRoute
+  LoginRoute: typeof LoginRoute
+  OrderDetailRoute: typeof OrderDetailRoute
+  OrdersRoute: typeof OrdersRoute
+  PrintPreviewRoute: typeof PrintPreviewRoute
+  PrintTemplateRoute: typeof PrintTemplateRoute
+  ProductsRoute: typeof ProductsRoute
+  RegisterRoute: typeof RegisterRoute
+  ReturnsRoute: typeof ReturnsRoute
+  StatsRoute: typeof StatsRoute
+  UsersRoute: typeof UsersRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/users': {
+      id: '/users'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof UsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stats': {
+      id: '/stats'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof StatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/returns': {
+      id: '/returns'
+      path: '/returns'
+      fullPath: '/returns'
+      preLoaderRoute: typeof ReturnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/print-template': {
+      id: '/print-template'
+      path: '/print-template'
+      fullPath: '/print-template'
+      preLoaderRoute: typeof PrintTemplateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/print-preview': {
+      id: '/print-preview'
+      path: '/print-preview'
+      fullPath: '/print-preview'
+      preLoaderRoute: typeof PrintPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-detail': {
+      id: '/order-detail'
+      path: '/order-detail'
+      fullPath: '/order-detail'
+      preLoaderRoute: typeof OrderDetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers': {
+      id: '/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customer-detail': {
+      id: '/customer-detail'
+      path: '/customer-detail'
+      fullPath: '/customer-detail'
+      preLoaderRoute: typeof CustomerDetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit-logs': {
+      id: '/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/audit-logs'
+      preLoaderRoute: typeof AuditLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +317,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuditLogsRoute: AuditLogsRoute,
+  CustomerDetailRoute: CustomerDetailRoute,
+  CustomersRoute: CustomersRoute,
+  LoginRoute: LoginRoute,
+  OrderDetailRoute: OrderDetailRoute,
+  OrdersRoute: OrdersRoute,
+  PrintPreviewRoute: PrintPreviewRoute,
+  PrintTemplateRoute: PrintTemplateRoute,
+  ProductsRoute: ProductsRoute,
+  RegisterRoute: RegisterRoute,
+  ReturnsRoute: ReturnsRoute,
+  StatsRoute: StatsRoute,
+  UsersRoute: UsersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

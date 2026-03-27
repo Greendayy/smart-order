@@ -5,7 +5,7 @@ import viteReact from "@vitejs/plugin-react";
 
 export default defineConfig({
   server: {
-    host: "127.0.0.1",
+    host: "localhost",
     strictPort: false,
     port: Number(process.env.WEB_PORT ?? "3000")
   },
