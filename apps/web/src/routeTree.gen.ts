@@ -9,13 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ReconcileRouteImport } from './routes/reconcile'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as CustomersRouteImport } from './routes/customers'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OrdersIndexRouteImport } from './routes/orders/index'
 import { Route as OrdersNewRouteImport } from './routes/orders/new'
 import { Route as OrdersIdRouteImport } from './routes/orders/$id'
 
+const ReconcileRoute = ReconcileRouteImport.update({
+  id: '/reconcile',
+  path: '/reconcile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
@@ -36,6 +43,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrdersIndexRoute = OrdersIndexRouteImport.update({
+  id: '/orders/',
+  path: '/orders/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OrdersNewRoute = OrdersNewRouteImport.update({
   id: '/orders/new',
   path: '/orders/new',
@@ -52,16 +64,20 @@ export interface FileRoutesByFullPath {
   '/customers': typeof CustomersRoute
   '/login': typeof LoginRoute
   '/products': typeof ProductsRoute
+  '/reconcile': typeof ReconcileRoute
   '/orders/$id': typeof OrdersIdRoute
   '/orders/new': typeof OrdersNewRoute
+  '/orders/': typeof OrdersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/customers': typeof CustomersRoute
   '/login': typeof LoginRoute
   '/products': typeof ProductsRoute
+  '/reconcile': typeof ReconcileRoute
   '/orders/$id': typeof OrdersIdRoute
   '/orders/new': typeof OrdersNewRoute
+  '/orders': typeof OrdersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,8 +85,10 @@ export interface FileRoutesById {
   '/customers': typeof CustomersRoute
   '/login': typeof LoginRoute
   '/products': typeof ProductsRoute
+  '/reconcile': typeof ReconcileRoute
   '/orders/$id': typeof OrdersIdRoute
   '/orders/new': typeof OrdersNewRoute
+  '/orders/': typeof OrdersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -79,24 +97,30 @@ export interface FileRouteTypes {
     | '/customers'
     | '/login'
     | '/products'
+    | '/reconcile'
     | '/orders/$id'
     | '/orders/new'
+    | '/orders/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/customers'
     | '/login'
     | '/products'
+    | '/reconcile'
     | '/orders/$id'
     | '/orders/new'
+    | '/orders'
   id:
     | '__root__'
     | '/'
     | '/customers'
     | '/login'
     | '/products'
+    | '/reconcile'
     | '/orders/$id'
     | '/orders/new'
+    | '/orders/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -104,12 +128,21 @@ export interface RootRouteChildren {
   CustomersRoute: typeof CustomersRoute
   LoginRoute: typeof LoginRoute
   ProductsRoute: typeof ProductsRoute
+  ReconcileRoute: typeof ReconcileRoute
   OrdersIdRoute: typeof OrdersIdRoute
   OrdersNewRoute: typeof OrdersNewRoute
+  OrdersIndexRoute: typeof OrdersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/reconcile': {
+      id: '/reconcile'
+      path: '/reconcile'
+      fullPath: '/reconcile'
+      preLoaderRoute: typeof ReconcileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
@@ -138,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/orders/': {
+      id: '/orders/'
+      path: '/orders'
+      fullPath: '/orders/'
+      preLoaderRoute: typeof OrdersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/orders/new': {
       id: '/orders/new'
       path: '/orders/new'
@@ -160,8 +200,10 @@ const rootRouteChildren: RootRouteChildren = {
   CustomersRoute: CustomersRoute,
   LoginRoute: LoginRoute,
   ProductsRoute: ProductsRoute,
+  ReconcileRoute: ReconcileRoute,
   OrdersIdRoute: OrdersIdRoute,
   OrdersNewRoute: OrdersNewRoute,
+  OrdersIndexRoute: OrdersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
