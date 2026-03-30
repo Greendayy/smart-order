@@ -29,7 +29,7 @@ function Home() {
       <p>
         API health: <b>{health.ok ? "OK" : "NOT OK"}</b>
       </p>
-      <p>Time: {health.time}</p>
+      <p>Time: {String(health.time)}</p>
     </main>
   );
 }
