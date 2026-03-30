@@ -3,6 +3,7 @@ import { auth } from "./auth";
 import { productsRoutes } from "./routes/products";
 import { customersRoutes } from "./routes/customers";
 import { ordersRoutes } from "./routes/orders";
+import { wechatMessagesRoutes } from "./routes/wechat-messages";
 
 const betterAuthPlugin = new Elysia({ name: "better-auth" })
   .mount(auth.handler)
@@ -39,4 +40,5 @@ export const app = new Elysia()
   .use(productsRoutes)
   .use(customersRoutes)
   .use(ordersRoutes)
+  .use(wechatMessagesRoutes)
   ;

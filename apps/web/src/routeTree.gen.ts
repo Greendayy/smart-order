@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WechatMessagesRouteImport } from './routes/wechat-messages'
 import { Route as ReconcileRouteImport } from './routes/reconcile'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as LoginRouteImport } from './routes/login'
@@ -18,6 +19,11 @@ import { Route as OrdersIndexRouteImport } from './routes/orders/index'
 import { Route as OrdersNewRouteImport } from './routes/orders/new'
 import { Route as OrdersIdRouteImport } from './routes/orders/$id'
 
+const WechatMessagesRoute = WechatMessagesRouteImport.update({
+  id: '/wechat-messages',
+  path: '/wechat-messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReconcileRoute = ReconcileRouteImport.update({
   id: '/reconcile',
   path: '/reconcile',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/products': typeof ProductsRoute
   '/reconcile': typeof ReconcileRoute
+  '/wechat-messages': typeof WechatMessagesRoute
   '/orders/$id': typeof OrdersIdRoute
   '/orders/new': typeof OrdersNewRoute
   '/orders/': typeof OrdersIndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/products': typeof ProductsRoute
   '/reconcile': typeof ReconcileRoute
+  '/wechat-messages': typeof WechatMessagesRoute
   '/orders/$id': typeof OrdersIdRoute
   '/orders/new': typeof OrdersNewRoute
   '/orders': typeof OrdersIndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/products': typeof ProductsRoute
   '/reconcile': typeof ReconcileRoute
+  '/wechat-messages': typeof WechatMessagesRoute
   '/orders/$id': typeof OrdersIdRoute
   '/orders/new': typeof OrdersNewRoute
   '/orders/': typeof OrdersIndexRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/products'
     | '/reconcile'
+    | '/wechat-messages'
     | '/orders/$id'
     | '/orders/new'
     | '/orders/'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/products'
     | '/reconcile'
+    | '/wechat-messages'
     | '/orders/$id'
     | '/orders/new'
     | '/orders'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/products'
     | '/reconcile'
+    | '/wechat-messages'
     | '/orders/$id'
     | '/orders/new'
     | '/orders/'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   ProductsRoute: typeof ProductsRoute
   ReconcileRoute: typeof ReconcileRoute
+  WechatMessagesRoute: typeof WechatMessagesRoute
   OrdersIdRoute: typeof OrdersIdRoute
   OrdersNewRoute: typeof OrdersNewRoute
   OrdersIndexRoute: typeof OrdersIndexRoute
@@ -136,6 +149,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wechat-messages': {
+      id: '/wechat-messages'
+      path: '/wechat-messages'
+      fullPath: '/wechat-messages'
+      preLoaderRoute: typeof WechatMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reconcile': {
       id: '/reconcile'
       path: '/reconcile'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   ProductsRoute: ProductsRoute,
   ReconcileRoute: ReconcileRoute,
+  WechatMessagesRoute: WechatMessagesRoute,
   OrdersIdRoute: OrdersIdRoute,
   OrdersNewRoute: OrdersNewRoute,
   OrdersIndexRoute: OrdersIndexRoute,
