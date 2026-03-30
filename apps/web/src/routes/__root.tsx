@@ -1,6 +1,12 @@
 /// <reference types="vite/client" />
 import type { ReactNode } from "react";
-import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
+import { HeadContent, Outlet, Scripts, createRootRoute, redirect } from "@tanstack/react-router";
+import "../styles.css";
+
+function isLoggedIn() {
+  if (typeof window === "undefined") return true;
+  return localStorage.getItem("smart_order_logged_in") === "true";
+}
 
 export const Route = createRootRoute({
   head: () => ({
@@ -10,6 +16,11 @@ export const Route = createRootRoute({
       { title: "Smart Order" }
     ]
   }),
+  beforeLoad: ({ location }) => {
+    if (location.pathname !== "/login" && !isLoggedIn()) {
+      throw redirect({ to: "/login" });
+    }
+  },
   component: RootComponent
 });
 
@@ -23,11 +34,11 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html>
+    <html lang="zh-CN">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="bg-gray-50 text-gray-900 min-h-screen">
         {children}
         <Scripts />
       </body>
