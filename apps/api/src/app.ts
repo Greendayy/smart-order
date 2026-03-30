@@ -1,5 +1,7 @@
 import { Elysia, t } from "elysia";
 import { auth } from "./auth";
+import { productsRoutes } from "./routes/products";
+import { customersRoutes } from "./routes/customers";
 
 const betterAuthPlugin = new Elysia({ name: "better-auth" })
   .mount(auth.handler)
@@ -33,4 +35,6 @@ export const app = new Elysia()
     }
   )
   .get("/me", ({ user }) => user, { auth: true })
+  .use(productsRoutes)
+  .use(customersRoutes)
   ;
