@@ -10,6 +10,7 @@
     "db:up": "docker compose up -d pg adminer",
     "db:down": "docker compose down",
     "db:migrate": "bun --env-file .env ./packages/db/src/migrate.ts",
+    "db:seed": "bun --env-file .env ./packages/db/src/seed.ts",
     "dev": "turbo dev --filter=@smart-order/api --filter=@smart-order/web --filter=@smart-order/docs",
     "build": "turbo build",
     "test": "turbo test",
