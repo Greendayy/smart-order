@@ -9,8 +9,7 @@ const cards = [
   { title: "订单列表", desc: "查看和管理所有订单", to: "/orders", icon: "📋" },
   { title: "商品管理", desc: "管理商品信息和库存", to: "/products", icon: "📦" },
   { title: "客户管理", desc: "管理客户信息", to: "/customers", icon: "👥" },
-  { title: "对账", desc: "按客户和日期对账", to: "/reconcile", icon: "💰" },
-  { title: "微信防漏单", desc: "录入和处理微信消息", to: "/wechat-messages", icon: "💬" }
+  { title: "打印设置", desc: "配置打印模板和偏移量", to: "/print-settings", icon: "🖨️" }
 ];
 
 function Home() {
